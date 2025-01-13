@@ -1,15 +1,13 @@
 let modInfo = {
 	name: "The Snake Tree",
 	author: "FunBoiMeeper",
-	pointsName: "snakes",
+	pointsName: "quacks",
 	modFiles: ["layers.js", "tree.js"],
-
 	discordName: "My Discord",
 	discordLink: "https://discord.gg/YkNA5sUTEY",
 	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
-
 // Set your version in num and name
 let VERSION = {
 	num: "0.0",
@@ -41,7 +39,8 @@ function getPointGen() {
 	if(!canGenPoints())
 		return new Decimal(0)
 	let gain = new Decimal(1)
-	if (hasUpgrade('p', 11)) gain = gain.times(2)
+	if (hasUpgrade('f', 11)) gain = gain.times(2)
+    if (hasUpgrade('f', 12)) gain = gain.times(upgradeEffect('f', 12))
 	return gain
 }
 
